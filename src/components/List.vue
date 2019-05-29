@@ -1,36 +1,34 @@
 <template>
-  <ul class="todo-main">
-   <Item v-for="(todo,index) in todos" :key="todo.id" :todo="todo"
-
-         :index="index"
-
-   />
-  </ul>
+  <div class="col-md-8">
+    <h3 class="reply">评论回复：</h3>
+    <h2 style='display: none'>暂无评论，点击左侧添加评论！！！</h2>
+    <ul class="list-group">
+      <Item v-for="(user) in users" :user="user" :key="user.id" :users="users"/>
+    </ul>
+  </div>
 </template>
 <script>
   import Item from './Item.vue'
 	export default {
-  	props:['todos'],
-		components: {
-			Item
-    }
+    data (){
+      return  {
+       users:[{}]
+      }
+    },
+    mounted(){
+
+      this.$bus.$on('users', (data) => {
+        this.users = data
+      })
+
+
+    },
+		components: {Item}
 	}
 </script>
 <style scoped>
-  .todo-main {
-    margin-left: 0px;
-    border: 1px solid #ddd;
-    border-radius: 2px;
-    padding: 0px;
+  .reply {
+    margin-top: 0px;
   }
 
-  .todo-empty {
-    height: 40px;
-    line-height: 40px;
-    border: 1px solid #ddd;
-    border-radius: 2px;
-    padding-left: 5px;
-    margin-top: 10px;
-  }
 </style>
-
