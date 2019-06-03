@@ -1,20 +1,21 @@
-/*
-入口js
- */
-import Vue from 'vue'
-import {Button} from 'mint-ui'
+
 import App from './App.vue'
-import router from './router'
 
-// 注册全局组件
-Vue.component(Button.name, Button)  // mt-xxx  mt-button
+import Vue from 'vue'
 
-/* eslint-disable no-new */
+//import VueResource from 'vue-resource'
+//import './bus' // 引入事件总线
+
+//Vue.prototype.$bus = new Vue()
+
+import store from './store'
+
+// 声明使用vueResource插件
+//Vue.use(VueResource) // 内部给Vue的原型对象上添加了一个能发ajax请求的属性对象$http
+
 new Vue({
-  el: '#app',
-  components: { // 注册组件: 指定组件标签名
-    App,
-  },
-  template: '<App/>',
-  router // 配置路由器
+  el:'#app',
+  components:{App},
+  template:'<App/>',
+  store
 })

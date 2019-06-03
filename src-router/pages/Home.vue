@@ -7,8 +7,12 @@
 
       <!-- <li><a href="#/home/news" class="router-link-exact-active activeClass">News</a></li> -->
       <!-- <li><a href="#/home/message" class="">Message</a></li> -->
-      <router-link to="/home/news" class="news">News</router-link>
-      <router-link to="/home/message">Message</router-link>
+     <li>
+          <router-link to="/home/news">News</router-link>
+        </li>
+        <li>
+          <router-link to="/home/message">Message</router-link>
+        </li>
 
     </ul>
     <router-view></router-view>
@@ -26,8 +30,5 @@
 
 </script>
 <style scoped>
-  .news {
-    margin-right: 20px
-  }
-
+  
 </style>
